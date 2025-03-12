@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Speech-to-Text</title>
+</head>
+<body>
+    <h1>Upload an Audio File for Speech-to-Text</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="audio" required>
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if transcription %}
+        <h2>Transcription:</h2>
+        <p>{{ transcription }}</p>
+    {% endif %}
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sonic Speed</title>
@@ -10,7 +30,8 @@
     {% csrf_token %}
     <input type="file" name="audio">
     <button type="submit">Transcribe</button>
+    <p id="output"></p>
 </form>
 
 </body>
-</html>
+</html> -->
