@@ -6,7 +6,7 @@ from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
 
 # Load Wav2Vec2 Model & Processor
 processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-large-960h")
-model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-large-960h")
+model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-large-960h",ignore_mismatched_sizes=True)
 
 def transcribe_audio(request):
     if request.method == "POST" and request.FILES.get("audio"):
