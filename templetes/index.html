@@ -12,10 +12,10 @@
         <button type="submit">Convert</button>
     </form> -->
 
-    {% if transcription %}
+    <!-- {% if transcription %}
         <h2>Transcription:</h2>
         <p>{{ transcription }}</p>
-    {% endif %} -->
+    {% endif %}  -->
 
     <div class="navbar">
       <img src="/static/image/logo2.png" alt="Sonic Speed Logo" class="logo" />
@@ -33,7 +33,7 @@
           {% if transcription %}
         <h2>Transcription:</h2>
         <p>{{ transcription }}</p>
-    {% endif %}
+            {% endif %}
           <!-- <button class="btn" onclick="startRecording()">
             Start Recording
           </button>
@@ -47,20 +47,3 @@
   </body>
 </html>
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonic Speed</title>
-</head>
-<body>
-  <form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="audio">
-    <button type="submit">Transcribe</button>
-    <p id="output"></p>
-</form>
-
-</body>
-</html> -->
