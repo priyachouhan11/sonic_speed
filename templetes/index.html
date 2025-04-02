@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
   </head>
   <body>
-    <!-- <h1>Upload an Audio File for Speech-to-Text</h1>
+    <h1>Upload an Audio File for Speech-to-Text</h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="audio" required>
@@ -15,34 +15,25 @@
     {% if transcription %}
         <h2>Transcription:</h2>
         <p>{{ transcription }}</p>
-    {% endif %} -->
+    {% endif %}
 
     <div class="navbar">
       <img src="/static/image/logo2.png" alt="Sonic Speed Logo" class="logo" />
     </div>
     <div class="container-box">
-      <div class="container">
-        <h1>Upload an Audio File for Speech-to-Text</h1>
-        <form method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-          <input type="file" name="audio" required />
-          <button class="btn" type="submit">Convert</button>
-        </form>
-        <input type="text" class="recording-field" placeholder="Recording will appear here..." readonly>
-        {% if transcription %}
-        <h2>Transcription:</h2>
-        <p>{{ transcription }}</p>
-        {% endif %}
-        <!-- <div>
+        <div class="container">
+          <h1>Upload an Audio File for Speech-to-Text</h1>
+          <input type="text" class="recording-field" placeholder="Recording will appear here..." readonly>
+        <div>
           <button class="btn" onclick="startRecording()">
             Start Recording
           </button>
           <button class="btn" onclick="stopRecording()">Stop Recording</button>
-        </div> -->
+        </div>
       </div>
-    </div>
+    </div> 
 
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
   </body>
 </html>
 
