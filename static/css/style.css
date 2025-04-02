@@ -8,6 +8,7 @@ html,body{
     width: 100%;
 }
 body {
+            min-height: 100%;
             font-family: Arial, sans-serif;
             background: url('https://qph.cf2.quoracdn.net/main-qimg-9e214f53af40d0e1e168d91c1cda3659-pjlq') no-repeat center center/cover;
             margin: 0;
