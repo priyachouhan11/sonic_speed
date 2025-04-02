@@ -5,12 +5,12 @@
     <link rel="stylesheet" href="/static/css/style.css">
   </head>
   <body>
-    <h1>Upload an Audio File for Speech-to-Text</h1>
+    <!-- <h1>Upload an Audio File for Speech-to-Text</h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="audio" required>
         <button type="submit">Convert</button>
-    </form>
+    </form> -->
 
     {% if transcription %}
         <h2>Transcription:</h2>
@@ -33,7 +33,8 @@
       </div>
     </div> 
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="/static/js/script.js"></script>
   </body>
 </html>
 
