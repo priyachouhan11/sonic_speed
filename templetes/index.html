@@ -1,55 +1,177 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Speech-to-Text</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-  </head>
-  <body>
-    <!-- <h1>Upload an Audio File for Speech-to-Text</h1>
-    <form method="POST" enctype="multipart/form-data">
+<head>
+  <title>Speech-to-Text</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      /* min-height: 100vh; */
+      /* padding: 20px; */
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .navbar .logo {
+      width: 250px;
+    }
+
+    .bgimg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .bgimg i {
+      font-size: 180px;
+      color: #007bff;
+      opacity: 0.2;
+    }
+
+    .container-box {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .container, .displayBox {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .InputFile {
+      padding: 10px;
+      border-radius: 8px;
+      border: 2px dashed #007bff;
+      background-color: #f9f9f9;
+      width: 100%;
+      max-width: 400px;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+    .convert{
+      background-color: #007bff;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .start {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .stop {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .Submit {
+      background-color: #343a40;
+      color: white;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      background-color: #f4f4f4;
+      resize: none;
+    }
+
+    .displayBox h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .displayBox p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .container-box {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <img src="/static/image/logo2.png" alt="Sonic Speed Logo" class="logo" />
+  </div>
+
+  <div class="bgimg">
+    <i class="fa-solid fa-microphone"></i>
+  </div>
+
+  <div class="container-box">
+    <div class="container">
+      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="audio" required>
-        <button type="submit">Convert</button>
-    </form> -->
+        <input type="file" class="InputFile" name="audio" />
+        <button type="submit" class="convert">Convert</button>
+      </form>
 
-    <!-- {% if transcription %}
-        <h2>Transcription:</h2>
-        <p>{{ transcription }}</p>
-    {% endif %}  -->
-
-    <div class="navbar">
-      <img src="/static/image/logo2.png" alt="Sonic Speed Logo" class="logo" />
+      <textarea id="output" placeholder="Your speech will appear here..." readonly></textarea>
+      <button class="start" onclick="startRecording()">Start Recording</button>
+      <button class="stop" onclick="stopRecording()">Stop Recording</button>
+      <!-- <button class="Submit">Submit</button> -->
     </div>
-    <div class="container-box">
-        <div class="container">
-          <h1>Upload an Audio File for Speech-to-Text</h1>
-          <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="file" name="audio" required>
-            <button type="submit">Convert</button>
-        </form>
-          <input type="text" class="recording-field" placeholder="Recording will appear here..." readonly>
-        <div>
-          {% if transcription %}
-        <h2>Transcription:</h2>
-        <p>{{ transcription }}</p>
-            {% endif %}
 
-            <h1>Speech to Text Converter</h1>
-    <button class="start" onclick="startRecording()">Start Recording</button>
-    <button class="stop" onclick="stopRecording()">Stop Recording</button>
-    <br>
-    <textarea id="output" placeholder="Your speech will appear here..." readonly></textarea>
-          <!-- <button class="btn" onclick="startRecording()">
-            Start Recording
-          </button>
-          <button class="btn" onclick="stopRecording()">Stop Recording</button> -->
-        </div>
-      </div>
-    </div> 
+    <div class="displayBox">
+      {% if transcription %}
+      <h2>Transcription:</h2>
+      <p>{{ transcription }}</p>
+      {% endif %}
+    </div>
+  </div>
 
-    <!-- <script src="script.js"></script> -->
-    <script src="/static/js/script.js"></script>
-  </body>
+  <script src="/static/js/script.js"></script>
+</body>
 </html>
 

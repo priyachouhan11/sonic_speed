@@ -7,14 +7,13 @@ html,body{
     height: 100%;
     width: 100%;
 }
-body {
+/* body {
             min-height: 100%;
             font-family: Arial, sans-serif;
             background: url('https://qph.cf2.quoracdn.net/main-qimg-9e214f53af40d0e1e168d91c1cda3659-pjlq') no-repeat center center/cover;
             margin: 0;
-            padding: 0;
             color: #E0E1DD;
-        }
+        } */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -49,21 +48,23 @@ body {
             align-items: center;
             /* text-align: center; */
         }
-        form{
+        /* form{
             /* border: 2px solid white; */
             /* display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center; */
-            /* width: 400px; */
-        }
+            /* width: 400px;
+            
+    }*/
+        
         .recording-field {
             width: 80%;
             max-width: 400px;
             height: 50px;
             border: none;
             background-color:transparent;
-            color:white;
+            color:rgb(196, 43, 43);
             border-radius: 5px;
             font-size: 25px;
             padding: 10px;
@@ -72,7 +73,7 @@ body {
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
         ::placeholder{
-            color: white;
+            color: rgb(146, 34, 34);
         }
         .btn {
             background-color: #1B98E0;
@@ -89,4 +90,69 @@ body {
         .btn:hover {
             background-color: #0A81AB;
             transform: scale(1.05);
-        }
+        } 
+        /* text aarea */
+        #output {
+            width: 100%;
+            /* min-height: 150px; */
+            padding: 12px 16px;
+            font-size: 16px;
+            line-height: 1.5;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            background-color: #f9f9f9;
+            resize: vertical;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            color: #333;
+          }
+          
+          #output:focus {
+            border-color: #4a90e2;
+            background-color: #fff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
+          }
+          
+          #output:hover {
+            border-color: #888;
+            background-color: #f0f0f0;
+          }
+          
+          #output::placeholder {
+            color: #999;
+            font-style: italic;
+            transition: color 0.3s ease;
+          }
+          
+          #output:focus::placeholder {
+            color: #ccc;
+          }
+          
+        /* text aarea */
+
+        /* Submit  */
+        .Submit {
+            padding: 10px 24px;
+            background-color: #4a90e2;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+          
+          .Submit:hover {
+            background-color: #357abd;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+          }
+          
+          .Submit:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3);
+          }
+          /* submit */
+          
